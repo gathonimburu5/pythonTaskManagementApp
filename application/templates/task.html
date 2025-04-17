@@ -1,0 +1,10 @@
+{% extends "layout/base.html" %}
+{% block title %} Dashboad {% endblock %}
+
+{% block content %}
+
+    {% for task in tasks %}
+        <p>{{ task.Id }}</p>
+    {% endfor %}
+
+{% endblock %}
