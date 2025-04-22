@@ -24,20 +24,26 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for task in tasks %}
+                                {% if tasks %}
+                                    {% for task in tasks %}
+                                        <tr>
+                                            <td>{{ task.id }}</td>
+                                            <td>{{ task.title }}</td>
+                                            <td>{{ task.description }}</td>
+                                            <td>{{ task.status }}</td>
+                                            <td>{{ task.hours }}</td>
+                                            <td>{{ task.planned_start_date.strftime('%d-%m-%Y') }}</td>
+                                            <td>{{ task.planned_end_date.strftime('%d-%m-%Y') }}</td>
+                                            <td>{{ task.actual_start_date.strftime('%d-%m-%Y') }}</td>
+                                            <td>{{ task.actual_end_date.strftime('%d-%m-%Y') }}</td>
+                                            <td></td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
                                     <tr>
-                                        <td>{{ task.Id }}</td>
-                                        <td>{{ task.Id }}</td>
-                                        <td>{{ task.Id }}</td>
-                                        <td>{{ task.Id }}</td>
-                                        <td>{{ task.Id }}</td>
-                                        <td>{{ task.Id }}</td>
-                                        <td>{{ task.Id }}</td>
-                                        <td>{{ task.Id }}</td>
-                                        <td>{{ task.Id }}</td>
-                                        <td></td>
+                                        <td colspan="10" style="text-align: center;">NO RECORD FOUND!!</td>
                                     </tr>
-                                {% endfor %}
+                                {% endif %}
                             </tbody>
                         </table>
                     </div>
